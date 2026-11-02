@@ -1,0 +1,3 @@
+실행 구조
+python run.py --data <data.json> --schema <schema.json> --record-key-path '<key>'
+python run.py   --data tests/sample_supplies.sales.json   --schema tests/schema-sample_supplies-sales-standardJSON.json   --record-key-path '_id.$oid'

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "couponUsed",
+    "customer",
+    "items",
+    "purchaseMethod",
+    "saleDate",
+    "storeLocation"
+  ],
+  "properties": {
+    "_id": {
+      "$ref": "#/$defs/ObjectId"
+    },
+    "couponUsed": {
+      "type": "boolean"
+    },
+    "customer": {
+      "type": "object",
+      "required": [
+        "age",
+        "email",
+        "gender",
+        "satisfaction"
+      ],
+      "properties": {
+        "age": {
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "satisfaction": {
+          "type": "integer"
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "price",
+          "quantity",
+          "tags"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "$ref": "#/$defs/Decimal128"
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "purchaseMethod": {
+      "type": "string"
+    },
+    "saleDate": {
+      "$ref": "#/$defs/Date"
+    },
+    "storeLocation": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "ObjectId": {
+      "type": "object",
+      "properties": {
+        "$oid": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{24}$"
+        }
+      },
+      "required": [
+        "$oid"
+      ],
+      "additionalProperties": false
+    },
+    "Decimal128": {
+      "type": "object",
+      "properties": {
+        "$numberDecimal": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "$numberDecimal"
+      ],
+      "additionalProperties": false
+    },
+    "Date": {
+      "type": "object",
+      "properties": {
+        "$date": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "$date"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
