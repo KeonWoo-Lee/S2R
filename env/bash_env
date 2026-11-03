@@ -1,0 +1,5 @@
+export S2R_PG_URL='jdbc:postgresql://192.168.4.116:5432/stockpipe'
+export S2R_PG_USER=stockpipe
+read -rsp 'PostgreSQL password: ' S2R_PG_PASSWORD
+echo
+export S2R_PG_PASSWORD
